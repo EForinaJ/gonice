@@ -1,0 +1,37 @@
+# HTTP Server
+[server]
+	Address     = ":8199"
+	ServerRoot  = "./public"
+	ServerAgent = "piankr"
+	LogPath     = "./tmp/log/piankr/server"
+	DumpRouterMap = false
+
+# Logger.
+[logger]
+    Path        = "./tmp/log/piankr"
+    Level       = "all"
+    Stdout      = true
+
+# Template.
+[viewer]
+    Path        = "template"
+    DefaultFile = "index.html"
+    Delimiters  =  ["${", "}"]
+
+# Database.
+[database]
+    link  = "mysql:root:121300@tcp(127.0.0.1:3306)/yqgo"
+    debug = true
+    # Database logger.
+    [database.logger]
+        Path   = "./tmp/log/piankr/sql"
+        Level  = "all"
+        Stdout = true
+
+# Redis数据库配置
+[redis]
+    default = "127.0.0.1:6379,0,xxxx?idleTimeout=600"
+
+# Template.
+[app]
+    url        = "http://localhost:8199/"
